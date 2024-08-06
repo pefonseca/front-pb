@@ -1,38 +1,287 @@
+/* src/App.css */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #ff7f50;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  background-color: #ff7f50; /* Cor de fundo para todos os botões */
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff4500; /* Cor de fundo ao passar o mouse */
+  transform: scale(1.05);
+}
+
+.Login-button, .Signup-button {
+  background-color: #D4D4D4;
+}
+
+.Login-button:hover, .Signup-button:hover {
+  background-color: #a1a0a0;
+}
+
+.App-content {
+  padding: 20px;
+}
+
+.New-post {
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid #ff7f50;
+  border-radius: 8px;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.Post-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.Post-item {
+  background: #f2f2f2; /* Cinza claro para o fundo das postagens */
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.Post-item:hover {
+  transform: translateY(-5px);
+}
+
+.Profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.Post-content {
+  text-align: left;
+  flex: 1;
+}
+
+.Trash-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none; /* Fundo transparente */
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  display: flex; /* Usa flexbox para centralizar o conteúdo */
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 5px; /* Espaçamento interno para garantir área clicável */
+  border-radius: 4px; /* Bordas arredondadas para o botão */
+}
+
+.Trash-button img {
+  width: 15px; /* Ajusta o tamanho da imagem da lixeira */
+  height: 15px; /* Ajusta o tamanho da imagem da lixeira */
+}
+
+.Trash-button:hover {
+  background-color: #ff7f50; /* Cor de fundo laranja ao passar o mouse */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra menor ao passar o mouse */
+}
+
+.Comment-button, .Add-post-button, .Add-comment-button {
+  background-color: #ff7f50; /* Cor de fundo para todos os botões */
+  border: none;
+  padding: 5px 10px;
   color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.Comment-button:hover, .Add-post-button:hover, .Add-comment-button:hover {
+  background-color: #ff4500; /* Cor de fundo ao passar o mouse */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Comments-section {
+  margin-top: 20px;
+  border-top: 2px solid #ff7f50;
+  padding-top: 10px;
+  position: relative;
+}
+
+.Comment-input-wrapper {
+  position: relative;
+}
+
+.Comment-input-wrapper input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* Espaço para o ícone de envio */
+  border: 2px solid #ff7f50;
+  border-radius: 8px;
+  font-size: 1em;
+  box-sizing: border-box;
+  background: white; /* Fundo branco para a caixa de texto */
+}
+
+.Comment-item {
+  background: #ffe0b2; /* Laranja claro para o fundo dos comentários */
+  margin: 10px 0; /* Espaço entre os comentários */
+  padding: 10px;
+  border-radius: 4px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreamento dos comentários */
+  position: relative; /* Para posicionar o botão de excluir */
+  display: flex; /* Usa flexbox para alinhamento dos itens */
+  align-items: center; /* Alinha itens verticalmente */
+}
+
+.Comment-content {
+  flex: 1; /* Faz com que o conteúdo do comentário ocupe o espaço disponível */
+}
+
+.Comment-item .Trash-button {
+  background: none; /* Fundo transparente */
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  display: flex; /* Usa flexbox para centralizar o conteúdo */
+  align-items: center;
+  justify-content: center;
+  padding: 5px; /* Espaçamento interno para garantir área clicável */
+  border-radius: 4px; /* Bordas arredondadas para o botão */
+  position: absolute; /* Posiciona o botão absolutamente em relação ao comentário */
+  top: 50%; /* Centraliza verticalmente */
+  right: 10px; /* Espaço da borda direita */
+  transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+}
+
+.Comment-item .Trash-button img {
+  width: 15px; /* Ajusta o tamanho da imagem da lixeira */
+  height: 15px; /* Ajusta o tamanho da imagem da lixeira */
+}
+
+.Comment-item .Trash-button:hover {
+  background-color: #ff7f50; /* Cor de fundo laranja ao passar o mouse */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra menor ao passar o mouse */
+}
+
+.Comment-input-wrapper {
+  position: relative;
+}
+
+.Comment-input-wrapper input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* Espaço para o ícone de envio */
+  border: 2px solid #ff7f50;
+  border-radius: 8px;
+  font-size: 1em;
+  box-sizing: border-box;
+  background: white; /* Fundo branco para a caixa de texto */
+}
+
+.Comment-icon {
+  position: absolute;
+  right: 10px; /* Ajusta a posição horizontal do ícone */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background: none; /* Fundo transparente */
+  border: none;
+  transition: background-color 0.3s ease;/* Transição suave para efeitos de hover */
+  display: flex; /* Usa flexbox para centralizar o conteúdo */
+  align-items: center;
+  justify-content: center;
+  padding: 5px; /* Espaçamento interno para garantir área clicável */
+  border-radius: 4px; /* Bordas arredondadas para o botão */
+}
+
+.Comment-icon img {
+  width: 20px; /* Ajusta o tamanho do ícone de envio */
+  height: 20px;
+}
+
+.Comment-icon:hover {
+  background-color: #ff7f50; /* Cor de fundo laranja ao passar o mouse */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra semelhante ao da lixeira */
+}
+
+.Comments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Comment-item {
+  background: white; /* Laranja claro para o fundo dos comentários */
+  margin: 10px 0; /* Espaço entre os comentários */
+  padding: 10px;
+  border-radius: 4px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreamento dos comentários */
+}
+
+.Comment-item:not(:last-child) {
+  margin-bottom: 15px; /* Espaço adicional entre os comentários */
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+@media (max-width: 600px) {
+  .App-header {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App-content {
+    padding: 10px;
+  }
+
+  textarea {
+    height: 80px;
+  }
+
+  button {
+    width: 100%;
   }
 }

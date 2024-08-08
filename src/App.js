@@ -10,7 +10,7 @@ const App = () => {
   const [newComment, setNewComment] = useState('');
   const [selectedPostId, setSelectedPostId] = useState(null);
 
-  const commentRef = useRef(null);
+  const commentRef = useRef(null); 
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -123,11 +123,12 @@ const App = () => {
                         <button onClick={() => handleDeletePost(post.id)} className="Trash-button">
                           <img src="/lixeira.png" alt="Excluir" />
                         </button>
+                        {/* Ajustar botão de comentário. */}
                         <button onClick={() => handleShowComments(post.id)} className="Comment-button">
                           <img src="/comment.png" alt="Comentar"></img>
-                        </button>
+                        </button>                  
                         <button onClick={() => handleShowComments(post.id)} className="Like-button">
-                          <img src="/rocket.png" alt="Comentar"></img>
+                          <img src="/rocket.png" alt="Foguete"></img>
                         </button>
                         {selectedPostId === post.id && (
                           <div className="Comments-section" ref={commentRef}>
